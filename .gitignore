@@ -1,0 +1,14 @@
+#Compiled class file
+*.class
+
+#Package Files
+*.jar
+
+#eclipse
+.classpath
+.project
+.settings/
+
+# OS Files
+Thumbs.db
+.DS_Store
