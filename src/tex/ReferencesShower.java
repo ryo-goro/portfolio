@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -133,8 +134,12 @@ public class ReferencesShower {
             // ノート終端まで読み込み終わった場合の処理
             sthmsList.add(sthmsInEachSectionList);
             referencesList.add(referencesInEachSectionList);
+        } catch (NoSuchFileException e) {
+            System.out.println("読み込むファイルが見つかりませんでした");
+            return;
         } catch (IOException e) {
             e.printStackTrace();
+            return;
         }
 
         // ここからコンソールに表示するための処理
@@ -159,6 +164,7 @@ public class ReferencesShower {
                     input = in.readLine();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    System.exit(0);
                 }
                 if ("q".equals(input)) {
                     System.out.println("終了します.");
@@ -193,6 +199,7 @@ public class ReferencesShower {
                     input = in.readLine();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    System.exit(0);
                 }
                 if ("q".equals(input)) {
                     System.out.println("終了します.");
